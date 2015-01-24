@@ -13,8 +13,6 @@ public class PlayerMovement : MonoBehaviour
 	void Awake () 
     {
         anim = GetComponent<Animator>();
-        if (anim)
-            Debug.LogError("Did not find Animator component.");
         playerRigidbody = GetComponent<Rigidbody>();
 	}
 
@@ -46,10 +44,7 @@ public class PlayerMovement : MonoBehaviour
         bool walking = v != 0.0f;
         bool turning = h != 0.0f ;
 
-        if (anim)
-        {
-            anim.SetBool("IsWalking", walking);
-            anim.SetBool("IsTurning", turning);
-        }
+        anim.SetBool("IsWalking", walking);
+        anim.SetBool("IsTurning", turning);
     }
 }
