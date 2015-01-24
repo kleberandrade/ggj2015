@@ -4,7 +4,7 @@ using System.Collections.Generic;
 
 public class EnemyMovement : MonoBehaviour
 {
-    public List<Transform> players = new List<Transform>();
+    private List<Transform> players = new List<Transform>();
     
     private NavMeshAgent nav;
 

@@ -6,8 +6,8 @@ public class PlayerAttack : MonoBehaviour
     public float timeAttack = 0.1f;
     public float timeBetweenAttack = 0.2f;
     public AudioClip attackClip;
-    public PlayerInput playerInput;
 
+    private PlayerInput playerInput;
     private AudioSource playerClip;
     private Animator anim;
     private float timer;

@@ -1,6 +1,9 @@
 ﻿using UnityEngine;
 using System.Collections;
 
+[RequireComponent(typeof(PlayerInput))]
+[RequireComponent(typeof(PlayerMovement))]
+[RequireComponent(typeof(PlayerAttack))]
 public class PlayerHealth : MonoBehaviour
 {
     public AudioClip deathClip;

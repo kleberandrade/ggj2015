@@ -6,15 +6,14 @@ public class CameraFollow : MonoBehaviour
     public Transform target;
     public float smoothing = 5.0f;
     public float distance;
-    public float minCameraSize;
+    private float minCameraSize;
 
     private Vector3 offset;
     private GameObject[] players;
-    private float sizeStart;
 
     void Start()
     {
-        sizeStart = Camera.main.orthographicSize;
+        minCameraSize = Camera.main.orthographicSize;
         offset = transform.position - target.position;
         players = GameObject.FindGameObjectsWithTag("Player");
     }
