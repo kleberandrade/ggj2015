@@ -4,14 +4,15 @@ using System.Collections;
 public class PlayerAttack : MonoBehaviour 
 {
     public float timeBetweenAttack = 0.2f;
+    public AudioClip attackClip;
 
-    private AudioSource attackClip;
+    private AudioSource playerClip;
     private Animator anim;
     private float timer;
 
 	void Awake () 
     {
-        attackClip = GetComponent<AudioSource>();
+        playerClip = GetComponent<AudioSource>();
         anim = GetComponent<Animator>();
 	}
 	
@@ -25,7 +26,8 @@ public class PlayerAttack : MonoBehaviour
     void Attack()
     {
         timer = 0.0f;
-        attackClip.Play();
+        playerClip.clip = attackClip;
+        playerClip.Play();
         anim.SetTrigger("Attack");
     }
 
