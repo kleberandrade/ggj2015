@@ -20,6 +20,7 @@ public class EnemyMovement : MonoBehaviour
 	void Update () 
     {
         nav.SetDestination(ClosestPlayer());
+        Debug.Log(nav.remainingDistance.ToString());
 	}
 
     Vector3 ClosestPlayer()

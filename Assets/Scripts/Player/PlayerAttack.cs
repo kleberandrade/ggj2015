@@ -3,15 +3,19 @@ using System.Collections;
 
 public class PlayerAttack : MonoBehaviour 
 {
+    public float timeAttack = 0.1f;
     public float timeBetweenAttack = 0.2f;
     public AudioClip attackClip;
+    public PlayerInput playerInput;
 
     private AudioSource playerClip;
     private Animator anim;
     private float timer;
+    private GameObject item;
 
 	void Awake () 
     {
+        playerInput = GetComponent<PlayerInput>();
         playerClip = GetComponent<AudioSource>();
         anim = GetComponent<Animator>();
 	}
@@ -19,7 +23,7 @@ public class PlayerAttack : MonoBehaviour
 	void Update () 
     {
         timer += Time.deltaTime;
-	    if (Input.GetButton("Fire1") && timer >= timeBetweenAttack)
+	    if (Input.GetButton(playerInput.GetAxis("Attack")) && timer >= timeBetweenAttack)
             Attack();
 	}
 
@@ -29,15 +33,31 @@ public class PlayerAttack : MonoBehaviour
         playerClip.clip = attackClip;
         playerClip.Play();
         anim.SetTrigger("Attack");
+
+        Invoke("Hit", timeAttack);
+    }
+
+    void Hit()
+    {
+        if (item == null)
+            return;
+
+        item.SendMessage("Hit", playerInput.strength);
     }
 
     void OnTriggerEnter(Collider other)
     {
-
+        if (other.CompareTag("Item"))
+        {
+            item = other.gameObject;
+        }
     }
 
     void OnTriggerExit(Collider other)
     {
-
+        if (other.CompareTag("Item"))
+        {
+            item = null;
+        }
     }
 }

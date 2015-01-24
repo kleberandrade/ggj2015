@@ -26,6 +26,8 @@ public class PlayerMovement : MonoBehaviour
     /// </summary>
     private Vector3 movement;
 
+    private PlayerInput playerInput;
+
     /// <summary>
     /// Referência do emissor de audio do jogador
     /// </summary>
@@ -46,6 +48,7 @@ public class PlayerMovement : MonoBehaviour
     /// </summary>
 	void Awake () 
     {
+        playerInput = GetComponent<PlayerInput>();
         playerAudio = GetComponent<AudioSource>();
         anim = GetComponent<Animator>();
         playerRigidbody = GetComponent<Rigidbody>();
@@ -56,8 +59,8 @@ public class PlayerMovement : MonoBehaviour
     /// </summary>
 	void FixedUpdate ()
     {
-        float h = Input.GetAxisRaw("Horizontal");
-        float v = Input.GetAxisRaw("Vertical");
+        float h = Input.GetAxisRaw(playerInput.GetAxis("Horizontal"));
+        float v = Input.GetAxisRaw(playerInput.GetAxis("Vertical"));
 
         Turning(h);
         Move(v);
@@ -93,10 +96,8 @@ public class PlayerMovement : MonoBehaviour
     void Animating(float h, float v)
     {
         bool walking = v != 0.0f;
-        bool turning = h != 0.0f;
 
         anim.SetBool("IsWalking", walking);
-        anim.SetBool("IsTurning", turning);
 
         FootStepSound(walking);
     }
