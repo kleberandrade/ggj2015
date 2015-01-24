@@ -32,6 +32,9 @@ public class SelectPlayer : MonoBehaviour
         SelectPlayerOne();
         SelectPlayerTwo();
         buttonConfirm.interactable = EnableButton();
+		if (Input.GetButtonDown ("Attack") && buttonConfirm.interactable) {
+			PlayGame();
+		}
     }
 
     void Select(Image[] images, int index)
@@ -42,7 +45,7 @@ public class SelectPlayer : MonoBehaviour
 
     void SelectPlayerOne()
     {
-        float move = Input.GetAxis("Horizontal1");
+        float move = Input.GetAxisRaw("Horizontal1");
         if (move != 0.0f && timerPlayerOne >= timerBetweenMove)
         {
             if (move > 0.0f)
@@ -58,7 +61,7 @@ public class SelectPlayer : MonoBehaviour
 
     void SelectPlayerTwo()
     {
-        float move = Input.GetAxis("Horizontal2");
+        float move = Input.GetAxisRaw("Horizontal2");
         if (move != 0.0f && timerPlayerTwo >= timerBetweenMove)
         {
             if (move > 0.0f)
