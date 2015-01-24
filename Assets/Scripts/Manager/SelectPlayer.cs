@@ -13,6 +13,7 @@ public class SelectPlayer : MonoBehaviour
     public AudioClip confirmClip;
     public float timerBetweenMove = 0.2f;
 
+    private int[] playersId = {1, 0, 2};
     private int indexPlayerOne = 1;
     private int indexPlayerTwo = 1;
     private float timerPlayerOne;
@@ -36,7 +37,7 @@ public class SelectPlayer : MonoBehaviour
     void Select(Image[] images, int index)
     {
         for (int i = 0; i < images.Length; i++)
-            images[i].enabled = (i == index);
+            images[i].gameObject.SetActive(i == index);            
     }
 
     void SelectPlayerOne()
@@ -83,5 +84,14 @@ public class SelectPlayer : MonoBehaviour
             return false;
 
         return true;
+    }
+
+    public void PlayGame()
+    {
+        PlayerPrefs.SetInt(PlayerType.Shaman.ToString(), playersId[indexPlayerOne]);
+        PlayerPrefs.SetInt(PlayerType.Warrior.ToString(), playersId[indexPlayerTwo]);
+        PlayerPrefs.Save();
+
+        Application.LoadLevel("Level_01");
     }
 }
