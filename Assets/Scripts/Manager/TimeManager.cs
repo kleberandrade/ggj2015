@@ -1,15 +1,18 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class Chronometer : MonoBehaviour {
+public class TimeManager : MonoBehaviour
+{
+    public int timeInMinutes = 60;
+    private float startTime;
 
-	// Use this for initialization
-	void Start () {
-	
+	void Awake () 
+    {
+	    
 	}
 	
-	// Update is called once per frame
-	void Update () {
-	
+	void Update () 
+    {
+	    
 	}
 }
