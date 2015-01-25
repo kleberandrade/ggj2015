@@ -32,11 +32,11 @@ public class ItemHighlight : MonoBehaviour
 
 	void Highlight()
     {
-		print ("highlighting");
+		//print ("highlighting");
 	}
 
 	void Dehighlight()
     {
-		print ("dehighlighting");
+		//print ("dehighlighting");
 	}
 }

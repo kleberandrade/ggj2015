@@ -29,9 +29,9 @@ public class ItemHealth : MonoBehaviour
             return;
 
         life -= hit;
-        if (IsDestroyed())
-            itemExplode.Destroy();
-        else
-            itemBehavior.Behave();
+       // if (IsDestroyed())
+           // itemExplode.Destroy();
+        //else
+       //     itemBehavior.Behave();
     }
 }

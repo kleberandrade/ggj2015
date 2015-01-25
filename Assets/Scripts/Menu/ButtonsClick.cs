@@ -19,22 +19,29 @@ public class ButtonsClick : MonoBehaviour
 
     public void StartGameClick()
     {
-        if (buttonClip)
-            buttonAudio.Play();
+        Click();
         screenManager.Load("SCharSelect");
     }
 
 	public void CreditsClick()
     {
-        if (buttonClip)
-            buttonAudio.Play();
+        Click();
         screenManager.Load("SCredits", "Credits");
 	}
 
 	public void ExitClick()
     {
-        if (buttonClip)
-            buttonAudio.Play();
+        Click();
         screenManager.Quit();
 	}
+
+    void Click()
+    {
+        if (buttonClip)
+        {
+            buttonAudio.clip = buttonClip;
+            buttonAudio.Play();
+        }
+            
+    }
 }

@@ -5,23 +5,21 @@ using UnityEngine.EventSystems;
 
 public class ButtonsHighlight : MonoBehaviour {
 	private GameObject Btn1, Btn2, Btn3;
-	//private Image icon1,icon2,icon3;
-	//private Button play, credits, exit;
 	public float buttonthreshold =0.2f;
 	public float timer = 0.0f;
 	public float current;
+    public AudioClip buttonHoverClip;
+
+    private AudioSource buttonAudio;
 
 	// Use this for initialization
 	void Awake ()
 	{
-		//icon1 = GameObject.FindGameObjectWithTag ("Img1").GetComponent<Image>();
-		//icon2 = GameObject.FindGameObjectWithTag ("Img1").GetComponent<Image>();
-		//icon3 = GameObject.FindGameObjectWithTag ("Img1").GetComponent<Image>();
-
 		Btn1 = GameObject.FindGameObjectWithTag ("b1");
 		Btn2 = GameObject.FindGameObjectWithTag ("b2");
 		Btn3 = GameObject.FindGameObjectWithTag ("b3");
 		current = 3;
+        buttonAudio = GetComponent<AudioSource>();
 	}
 
 	void Start () 
@@ -33,13 +31,17 @@ public class ButtonsHighlight : MonoBehaviour {
 	void Update () {
 		timer += Time.deltaTime;
 		if(Input.GetAxisRaw("Vertical") != 0.0f  && timer >= buttonthreshold){
-			current+=Input.GetAxisRaw("Vertical");
+            if(buttonHoverClip)
+            {
+                buttonAudio.clip = buttonHoverClip;
+                buttonAudio.Play();
+            }
+            current+=Input.GetAxisRaw("Vertical");
 			if(current > 3.0f) current= 1.0f;
 			else if(current < 1.0f) current = 3.0f;
 			SwitchIcon(current);
-			
 		} 
-		if (Input.GetButtonDown ("Attack") && timer >= buttonthreshold) {
+		if ((Input.GetButtonDown ("Attack1") || Input.GetButtonDown ("Attack2")) && timer >= buttonthreshold) {
 			ExecuteButton((int)current);
 		}
 			

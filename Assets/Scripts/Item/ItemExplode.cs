@@ -3,6 +3,21 @@ using System.Collections;
 
 public class ItemExplode : MonoBehaviour 
 {
+    public AudioClip explodeClip;
+    private AudioSource itemAudio;
+    private ParticleSystem pSystem;
+
+    void Awake()
+    {
+        itemAudio = GetComponent<AudioSource>();
+        pSystem = GetComponent<ParticleSystem>();
+        pSystem.startSpeed = 0.0f;
+        pSystem.startSize = 0.3f;
+    }
+
+
+
+    /*
     public float explosionForce = 100.0f;
     public float explosionRadius = 30.0f;
     public float time = 0.02f;
@@ -78,4 +93,5 @@ public class ItemExplode : MonoBehaviour
         itemAudio.Play();
         Destroy(gameObject, itemAudio.clip.length);
     }
+     * */
 }
