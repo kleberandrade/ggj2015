@@ -7,7 +7,7 @@ public class SoundManager : MonoBehaviour {
 	public float transitionTime = 1.0f;
 
 	private AudioSource[] sources = new AudioSource[2];
-	private float[] finalVolumes = {0.0f, 1.0f};
+	private float[] finalVolumes = {0.0f, 0.6f};
 	private int currentSource = 1;
 
 	void Awake()
@@ -35,7 +35,7 @@ public class SoundManager : MonoBehaviour {
 
 		finalVolumes [currentSource] = 0.0f;
 		SwapCurrent ();
-		finalVolumes [currentSource] = 1.0f;
+		finalVolumes [currentSource] = 0.6f;
         sources[currentSource].clip = clip;
 		sources [currentSource].Play ();
 	}

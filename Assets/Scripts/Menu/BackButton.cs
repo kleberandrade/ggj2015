@@ -22,7 +22,7 @@ public class BackButton : MonoBehaviour
 	
 	void Update () 
     {
-        if (Input.GetButtonDown("Attack"))
+        if (Input.GetButtonDown("Attack1") || Input.GetButtonDown("Attack2"))
         {
             var pointer = new PointerEventData(EventSystem.current);
             ExecuteEvents.Execute(button, pointer, ExecuteEvents.pointerClickHandler);

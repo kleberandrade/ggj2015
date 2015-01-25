@@ -36,7 +36,7 @@ public class SelectPlayer : MonoBehaviour
         SelectPlayerTwo();
         buttonConfirm.interactable = EnableButton();
 
-        if (Input.GetButtonDown("Attack") && buttonConfirm.interactable)
+        if ((Input.GetButtonDown("Attack1") || Input.GetButtonDown("Attack2")) && buttonConfirm.interactable)
             PlayGame();
 
         if (Input.GetKeyDown(KeyCode.Escape))
