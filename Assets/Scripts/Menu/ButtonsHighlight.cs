@@ -12,17 +12,11 @@ public class ButtonsHighlight : MonoBehaviour {
 	public float current;
 
 	// Use this for initialization
-
-
-	
-	
 	void Awake ()
 	{
-	
 		//icon1 = GameObject.FindGameObjectWithTag ("Img1").GetComponent<Image>();
 		//icon2 = GameObject.FindGameObjectWithTag ("Img1").GetComponent<Image>();
 		//icon3 = GameObject.FindGameObjectWithTag ("Img1").GetComponent<Image>();
-
 
 		Btn1 = GameObject.FindGameObjectWithTag ("b1");
 		Btn2 = GameObject.FindGameObjectWithTag ("b2");

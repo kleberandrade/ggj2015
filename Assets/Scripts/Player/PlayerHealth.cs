@@ -12,6 +12,7 @@ public class PlayerHealth : MonoBehaviour
     private PlayerMovement playerMovementScrip;
     private AudioSource playerAudio;
     private Animator anim;
+    private CapsuleCollider capsuleCollider;
 
 	void Awake () 
     {
@@ -19,6 +20,7 @@ public class PlayerHealth : MonoBehaviour
         playerMovementScrip = GetComponent<PlayerMovement>();
         playerAudio = GetComponent<AudioSource>();
         anim = GetComponent<Animator>();
+        capsuleCollider = GetComponent<CapsuleCollider>();
 	}
 	
 	public void Kill () 
@@ -28,5 +30,6 @@ public class PlayerHealth : MonoBehaviour
         anim.SetTrigger("Die");
         playerAttackScrip.enabled = false;
         playerMovementScrip.enabled = false;
+        capsuleCollider.enabled = false;
     }
 }
