@@ -13,6 +13,7 @@ public enum PlayerId
     PlayerTwo
 }
 
+[AddComponentMenu("Scripts/Player/PlayerInput")]
 public class PlayerInput : MonoBehaviour 
 {
     public PlayerType playerType;

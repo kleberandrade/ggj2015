@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
+[AddComponentMenu("Scripts/Player/PlayerAttack")]
 public class PlayerAttack : MonoBehaviour 
 {
     public float timeAttack = 0.1f;
@@ -28,8 +29,6 @@ public class PlayerAttack : MonoBehaviour
 	    if (Input.GetButton(playerInput.GetAxis("Attack")) && timer >= timeBetweenAttack)
             Attack();
 	}
-
-
 
     void Attack()
     {

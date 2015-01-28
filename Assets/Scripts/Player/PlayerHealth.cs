@@ -4,6 +4,7 @@ using System.Collections;
 [RequireComponent(typeof(PlayerInput))]
 [RequireComponent(typeof(PlayerMovement))]
 [RequireComponent(typeof(PlayerAttack))]
+[AddComponentMenu("Scripts/Player/PlayerHealth")]
 public class PlayerHealth : MonoBehaviour
 {
     public AudioClip deathClip;
