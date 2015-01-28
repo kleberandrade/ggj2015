@@ -4,7 +4,7 @@ using System.Collections;
 /// <summary>
 /// Define se a cena será uma cena de splash onde tem um tempo para sair
 /// </summary>
-[AddComponentMenu("Script/Manager/SplashScreen")]
+[AddComponentMenu("Scripts/Manager/SplashScreen")]
 public class SplashScreen : MonoBehaviour 
 {
     /// <summary>
