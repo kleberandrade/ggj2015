@@ -4,7 +4,7 @@ using System.Collections;
 /// <summary>
 /// Gerênciador de música de fundos
 /// </summary>
-[AddComponentMenu("Script/Manager/SoundManager")]
+[AddComponentMenu("Scripts/Manager/SoundManager")]
 public class SoundManager : MonoBehaviour 
 {
     /// <summary>
