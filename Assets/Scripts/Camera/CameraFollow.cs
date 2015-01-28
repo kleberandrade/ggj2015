@@ -1,30 +1,61 @@
 ﻿using UnityEngine;
 using System.Collections;
 
+/// <summary>
+/// Seguidor dos personagens
+/// </summary>
+[AddComponentMenu("Scripts/Camera/CameraFollow")]
 public class CameraFollow : MonoBehaviour
 {
+    /// <summary>
+    /// Tempo para atingir o alvo
+    /// </summary>
     public float smoothing = 5.0f;
-    public float distance;
-    private float minCameraSize;
 
+    /// <summary>
+    /// Tamanho minimo da câmera
+    /// </summary>
+    public float minCameraSize = 4.5f;
+
+    /// <summary>
+    /// Offset em relação ao centro
+    /// </summary>
     private Vector3 offset;
+
+
+    /// <summary>
+    /// Referência para os jogadores da cena
+    /// </summary>
     private GameObject[] players;
+
+    /// <summary>
+    /// Reerência para câmera prncipal do jogo
+    /// </summary>
+    private Camera camera;
+
+    /// <summary>
+    /// Centro entre os dois jogadores
+    /// </summary>
+    private Vector3 target;
 
     void Start()
     {
-        minCameraSize = Camera.main.orthographicSize;
+        camera = Camera.main;
         players = GameObject.FindGameObjectsWithTag("Player");
+        target = Vector3.Lerp(players[0].transform.position, players[1].transform.position, 0.5f);
+        offset = transform.position - Vector3.Lerp(players[0].transform.position, target, 0.5f);
+        offset.x = 0.0f;
     }
 
-    void FixedUpdate()
+    void Update()
     {
-		Vector3 theTarget = Vector3.up * players [0].transform.position.y;
-		theTarget.x = Mathf.Abs (players [0].transform.position.x - players [1].transform.position.x) / 2.0f + Mathf.Min (players [0].transform.position.x, players [1].transform.position.x);
-		theTarget.z = Mathf.Abs(players[0].transform.position.z - players[1].transform.position.z)/2.0f + Mathf.Min(players[0].transform.position.z, players[1].transform.position.z);
-		float dist = Mathf.Sqrt (Mathf.Pow(players[0].transform.position.x - players[1].transform.position.x, 2.0f) + Mathf.Pow(players[0].transform.position.z - players[1].transform.position.z,2.0f));
-		transform.LookAt (theTarget);
-				
-		//transform.position = Vector3.Lerp (transform.position, theTarget, smoothing*Time.deltaTime);
-		Camera.main.orthographicSize = Mathf.Max(minCameraSize, dist/Camera.main.aspect/Mathf.Log10(dist));
+        // define o centro entre os dois jogadores
+        target = Vector3.Lerp(players[0].transform.position, players[1].transform.position, 0.5f) + offset;
+        // reposiciona a câmera com base no centro
+        transform.position = Vector3.Lerp(transform.position, target, smoothing * Time.deltaTime);
+        // distância entre os jogadores
+        float distance = Vector3.Distance(players[0].transform.position, players[1].transform.position);
+        // modifica o tamanho da camera
+        camera.orthographicSize = Mathf.Max(minCameraSize, distance / Camera.main.aspect / Mathf.Log10(distance));
     }
 }
