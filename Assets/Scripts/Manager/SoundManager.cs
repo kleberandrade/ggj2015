@@ -111,9 +111,11 @@ public class SoundManager : MonoBehaviour
     /// </summary>
 	void Update()
     {
+        // Verifica se vai reposicionar o componente na mesma posição da câmera
         if (useCameraPosition && Camera.main != null)
             transform.position = Camera.main.transform.position;
 
+        // Faz a transição dos volumes entre as duas trilhas
 		sources [0].volume = Mathf.Lerp (sources [0].volume, finalVolumes [0], transitionTime * Time.deltaTime);
 		sources [1].volume = Mathf.Lerp (sources [1].volume, finalVolumes [1], transitionTime * Time.deltaTime);
 	}
