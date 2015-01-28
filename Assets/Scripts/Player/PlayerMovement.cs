@@ -4,6 +4,7 @@ using System.Collections;
 /// <summary>
 /// Movimento do jogador
 /// </summary>
+[AddComponentMenu("Scripts/Player/PlayerMovement")]
 public class PlayerMovement : MonoBehaviour 
 {
     /// <summary>
@@ -17,15 +18,13 @@ public class PlayerMovement : MonoBehaviour
     public float turnSpeed = 160.0f;
 
     /// <summary>
-    /// Som de caminhada do jogador
-    /// </summary>
-    public AudioClip walkClip;
-
-    /// <summary>
     /// Vetor de movimento
     /// </summary>
     private Vector3 movement;
 
+    /// <summary>
+    /// Define qual se o jogador é o primeiro ou segundo
+    /// </summary>
     private PlayerInput playerInput;
 
     /// <summary>
@@ -44,7 +43,7 @@ public class PlayerMovement : MonoBehaviour
     private Rigidbody playerRigidbody;
 
     /// <summary>
-    /// Início
+    /// Armazena as referências
     /// </summary>
 	void Awake () 
     {
@@ -70,7 +69,7 @@ public class PlayerMovement : MonoBehaviour
     /// <summary>
     /// Movimento do jogador
     /// </summary>
-    /// <param name="v"></param>
+    /// <param name="v">Vertical</param>
     void Move(float v)
     {
         movement = v * transform.forward;
@@ -81,7 +80,7 @@ public class PlayerMovement : MonoBehaviour
     /// <summary>
     /// Rotação do jogador
     /// </summary>
-    /// <param name="h"></param>
+    /// <param name="h">Horizontal</param>
     void Turning(float h)
     {
         Quaternion deltaRotation = Quaternion.Euler(h * Vector3.up * turnSpeed * Time.deltaTime); 
@@ -91,27 +90,12 @@ public class PlayerMovement : MonoBehaviour
     /// <summary>
     /// Determinas as animações de caminhada
     /// </summary>
-    /// <param name="h"></param>
-    /// <param name="v"></param>
+    /// <param name="h">Horizontal</param>
+    /// <param name="v">Vertical</param>
     void Animating(float h, float v)
     {
         bool walking = v != 0.0f;
 
         anim.SetBool("IsWalking", walking);
-
-        FootStepSound(walking);
-    }
-
-    /// <summary>
-    /// Toca o som de caminhada do jogador
-    /// </summary>
-    /// <param name="walking"></param>
-    void FootStepSound(bool walking)
-    {
-        if (!playerAudio.isPlaying && walking)
-        {
-            playerAudio.clip = walkClip;
-            playerAudio.Play();
-        }
     }
 }
