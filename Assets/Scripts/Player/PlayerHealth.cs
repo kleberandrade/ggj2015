@@ -7,30 +7,45 @@ using System.Collections;
 [AddComponentMenu("Scripts/Player/PlayerHealth")]
 public class PlayerHealth : MonoBehaviour
 {
-    public AudioClip deathClip;
+    /// <summary>
+    /// Referência para o script de ataque
+    /// </summary>
+    private PlayerAttack playerAttack;
 
-    private PlayerAttack playerAttackScrip;
-    private PlayerMovement playerMovementScrip;
-    private AudioSource playerAudio;
+    /// <summary>
+    /// Referência para o script de movimento
+    /// </summary>
+    private PlayerMovement playerMovement;
+
+    /// <summary>
+    /// Referência para o script de sons
+    /// </summary>
+    private PlayerSound playerSound;
+
+    /// <summary>
+    /// Referência para o Animator
+    /// </summary>
     private Animator anim;
-    private CapsuleCollider capsuleCollider;
 
+    /// <summary>
+    /// Atribui as referências
+    /// </summary>
 	void Awake () 
     {
-        playerAttackScrip = GetComponent<PlayerAttack>();
-        playerMovementScrip = GetComponent<PlayerMovement>();
-        playerAudio = GetComponent<AudioSource>();
+        playerAttack = GetComponent<PlayerAttack>();
+        playerMovement = GetComponent<PlayerMovement>();
+        playerSound = GetComponent<PlayerSound>();
         anim = GetComponent<Animator>();
-        capsuleCollider = GetComponent<CapsuleCollider>();
 	}
 	
+    /// <summary>
+    /// Mata o jogador
+    /// </summary>
 	public void Kill () 
     {
-        playerAudio.clip = deathClip;
-        playerAudio.Play();
+        playerSound.PlayDeathClip();
         anim.SetTrigger("Die");
-        playerAttackScrip.enabled = false;
-        playerMovementScrip.enabled = false;
-        capsuleCollider.enabled = false;
+        playerAttack.enabled = false;
+        playerMovement.enabled = false;
     }
 }

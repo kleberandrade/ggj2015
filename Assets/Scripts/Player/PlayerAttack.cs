@@ -4,25 +4,54 @@ using System.Collections;
 [AddComponentMenu("Scripts/Player/PlayerAttack")]
 public class PlayerAttack : MonoBehaviour 
 {
+    /// <summary>
+    /// Tempo da animação de ataque
+    /// </summary>
     public float timeAttack = 0.1f;
-    public float timeBetweenAttack = 0.2f;
-    public AudioClip attackClip;
-	private Color startcolor;
-    private PlayerInput playerInput;
-    private AudioSource playerClip;
-    private Animator anim;
-    private float timer;
-    private GameObject item, player;
-	public ParticleSystem particles;
 
+    /// <summary>
+    /// Tempo entre os ataques
+    /// </summary>
+    public float timeBetweenAttack = 0.2f;
+
+    /// <summary>
+    /// Referência para os sons do jogador
+    /// </summary>
+    private PlayerSound playerSound;
+    
+    /// <summary>
+    /// Referência para as entradas do jogador
+    /// </summary>
+    private PlayerInput playerInput;
+
+    /// <summary>
+    /// Referência para o Animator
+    /// </summary>
+    private Animator anim;
+
+    /// <summary>
+    /// Acumulador de tempo
+    /// </summary>
+    private float timer;
+
+    /// <summary>
+    /// Referência para objetos pertos da cena
+    /// </summary>
+    private GameObject item;
+
+    /// <summary>
+    /// Atribui as referências
+    /// </summary>
 	void Awake () 
     {
+        playerSound = GetComponent<PlayerSound>();
         playerInput = GetComponent<PlayerInput>();
-        playerClip = GetComponent<AudioSource>();
         anim = GetComponent<Animator>();
-
 	}
 	
+    /// <summary>
+    /// Loop de ataque
+    /// </summary>
 	void Update () 
     {
         timer += Time.deltaTime;
@@ -30,49 +59,45 @@ public class PlayerAttack : MonoBehaviour
             Attack();
 	}
 
+    /// <summary>
+    /// Método pra ataque do jogador
+    /// </summary>
     void Attack()
     {
-
         timer = 0.0f;
-        playerClip.clip = attackClip;
-        playerClip.Play();
+        playerSound.PlayAttackClip();
         anim.SetTrigger("Attack");
-		if (particles != null)
-			particles.Play ();
-
         Invoke("Hit", timeAttack);
-
     }
 
+    /// <summary>
+    /// Verifica se tem objeto para colidir
+    /// </summary>
     void Hit()
     {
         if (item == null)
             return;
 
         item.SendMessage("Hit", playerInput.strength);
-
     }
 
+    /// <summary>
+    /// Entrou na zona de colisão de itens
+    /// </summary>
+    /// <param name="other">Item a ser tocado</param>
     void OnTriggerEnter(Collider other)
     {
-		if (other.CompareTag ("Floor")) {
-			item = other.gameObject;
-			item.particleSystem.Play ();
-		}else if (other.CompareTag ("Item")) {
-            
-						item = other.gameObject;
-						startcolor = item.renderer.material.color;
-						item.renderer.material.color = Color.yellow;
-						item.particleSystem.Play ();
-				} 
+		if (other.CompareTag ("Item"))
+            item = other.gameObject;
     }
 
+    /// <summary>
+    /// Saiu da zona de colisão de itens
+    /// </summary>
+    /// <param name="other">Item tocado</param>
     void OnTriggerExit(Collider other)
     {
-        if (other.CompareTag("Item"))
-        {	
-			item.renderer.material.color = startcolor;
+        if (other.CompareTag ("Item"))
 			item = null;
-        }
     }
 }
