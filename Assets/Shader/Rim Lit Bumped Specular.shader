@@ -12,7 +12,7 @@
 
     SubShader {
 
-      Tags { "RenderType" = "Opaque" }
+      Tags {  "RenderType" = "Transparent" "Queue" = "Transparent" }
       CGPROGRAM
       #pragma surface surf BlinnPhong
       
@@ -34,7 +34,8 @@
   		  fixed4 tex = tex2D(_MainTex, IN.uv_MainTex);  
           o.Albedo = tex2D (_MainTex, IN.uv_MainTex).rgb;
           o.Gloss = tex.a;
-          o.Alpha = tex.a * _Color.a;
+          //o.Alpha = tex.a * _Color.a;
+		  o.Alpha = tex.a;
           o.Specular = _Shininess;
           o.Normal = UnpackNormal (tex2D (_BumpMap, IN.uv_BumpMap));
           half rim = 1.0 - saturate(dot (normalize(IN.viewDir), o.Normal));

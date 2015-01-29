@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-[AddComponentMenu("Scripts/Player/PlayerAttack")]
+[AddComponentMenu("Scripts/Player/PlayerSound")]
 public class PlayerAttack : MonoBehaviour 
 {
     /// <summary>

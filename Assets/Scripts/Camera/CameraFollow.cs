@@ -55,7 +55,7 @@ public class CameraFollow : MonoBehaviour
         transform.position = Vector3.Lerp(transform.position, target, smoothing * Time.deltaTime);
         // distância entre os jogadores
         float distance = Vector3.Distance(players[0].transform.position, players[1].transform.position);
-        // modifica o tamanho da camera
+
         camera.orthographicSize = Mathf.Max(minCameraSize, distance / Camera.main.aspect / Mathf.Log10(distance));
     }
 }

@@ -43,6 +43,10 @@ public class SplashScreen : MonoBehaviour
         screenManager = go.GetComponent<ScreenManager>();
         soundManager = go.GetComponent<SoundManager>();
 
+        // Toca a música se existir
+        if (backgroundMusic != null)
+            soundManager.PlayClip(backgroundMusic);
+
         // Inicia a coroutine NextScreen
         StartCoroutine("NextScreen", time);
 	}
@@ -54,12 +58,9 @@ public class SplashScreen : MonoBehaviour
 	/// <returns></returns>
 	IEnumerator NextScreen (float time) 
     {
-        // Toca a música se existir
-        if (backgroundMusic != null)
-            soundManager.PlayClip(backgroundMusic);
         // Espera um tempo
         yield return new WaitForSeconds(time);
         // Troca a cena
-        screenManager.Load(nextSceneName);
+        screenManager.Load(nextSceneName, backgroundMusic);
 	}
 }

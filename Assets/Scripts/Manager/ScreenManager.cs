@@ -28,6 +28,7 @@ public class ScreenManager : MonoBehaviour
     IEnumerator Loading(string name)
     {
         yield return new WaitForSeconds(fade.BeginFade(FadeDir.Out));
+
         if (!name.Equals("Quit"))
         {
             Application.LoadLevel(name);

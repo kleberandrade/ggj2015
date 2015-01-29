@@ -17,7 +17,7 @@ public class SoundManager : MonoBehaviour
     /// Volume final do audio
     /// </summary>
     [Range(0.0f, 1.0f)]
-    public float finalVolume = 0.6f;
+    public float bgmVolume = 0.6f;
 
     /// <summary>
     /// Caminho dentro da pasta de Resources
@@ -32,7 +32,7 @@ public class SoundManager : MonoBehaviour
     /// <summary>
     /// Volumes finais das músicas
     /// </summary>
-    private float[] finalVolumes = new float[2];
+    private float[] finalVolumes = { 0.0f, 1.0f };
 
     /// <summary>
     /// Origem das trilhas sonoras
@@ -55,20 +55,6 @@ public class SoundManager : MonoBehaviour
             sources[i] = gameObject.AddComponent<AudioSource>();
             sources[i].loop = true;
         }
-
-        // Procura a chave MusicLevel para pegar o volume do som
-        if (!PlayerPrefs.HasKey("MusicLevel")) 
-        {
-            finalVolume = PlayerPrefs.GetFloat("MusicLevel");
-        }
-        else
-        {
-            PlayerPrefs.SetFloat("MusicLevel", finalVolume);
-            PlayerPrefs.Save();
-        }
-        
-        finalVolumes[0] = 0.0f;
-        finalVolumes[1] = finalVolume;
     }
 
     /// <summary>
@@ -90,7 +76,9 @@ public class SoundManager : MonoBehaviour
         if (clip == sources[currentSource].clip)
             return;
 
+        finalVolumes[currentSource] = 0.0f;
 		SwapCurrent ();
+        finalVolumes[currentSource] = bgmVolume;
 
         sources[currentSource].clip = clip;
 		sources [currentSource].Play ();
@@ -101,9 +89,7 @@ public class SoundManager : MonoBehaviour
     /// </summary>
 	void SwapCurrent()
     {
-        finalVolumes[currentSource] = 0.0f;
-		currentSource = (++currentSource) % 2;
-        finalVolumes[currentSource] = finalVolume;
+		currentSource = (++currentSource) % sources.Length;
 	}
 
     /// <summary>

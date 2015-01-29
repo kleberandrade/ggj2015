@@ -2,6 +2,7 @@
 using System.Collections;
 
 [RequireComponent(typeof(PlayerInput))]
+[RequireComponent(typeof(PlayerSound))]
 [RequireComponent(typeof(PlayerMovement))]
 [RequireComponent(typeof(PlayerAttack))]
 [AddComponentMenu("Scripts/Player/PlayerHealth")]
