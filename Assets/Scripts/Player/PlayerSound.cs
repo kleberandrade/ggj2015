@@ -2,6 +2,7 @@
 using System.Collections;
 
 [RequireComponent(typeof(AudioSource))]
+[AddComponentMenu("Scripts/Player/PlayerSound")]
 public class PlayerSound : MonoBehaviour 
 {
     /// <summary>

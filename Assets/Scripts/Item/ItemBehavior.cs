@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
+[AddComponentMenu("Scripts/Item/ItemBehavior")]
 public class ItemBehavior : MonoBehaviour
 {
     public AudioClip clip;

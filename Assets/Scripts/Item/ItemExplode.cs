@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
+[AddComponentMenu("Scripts/Item/ItemExplode")]
 public class ItemExplode : MonoBehaviour 
 {
 

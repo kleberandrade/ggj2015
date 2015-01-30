@@ -5,6 +5,7 @@ using System.Collections;
 [RequireComponent(typeof(ItemHighlight))]
 [RequireComponent(typeof(ItemExplode))]
 [RequireComponent (typeof(ItemBehavior))]
+[AddComponentMenu("Scripts/Item/ItemHealth")]
 public class ItemHealth : MonoBehaviour 
 {
     public int life = 10;

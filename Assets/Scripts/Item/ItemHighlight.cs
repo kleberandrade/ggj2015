@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
+[AddComponentMenu("Scripts/Item/ItemHighlight")]
 public class ItemHighlight : MonoBehaviour
 {
 	private int collidingPlayers;

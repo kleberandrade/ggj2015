@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 
+[AddComponentMenu("Scripts/Enemy/EnemyMovement")]
 public class EnemyMovement : MonoBehaviour
 {
     private List<Transform> players = new List<Transform>();
