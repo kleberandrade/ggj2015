@@ -17,7 +17,7 @@ public class SoundManager : MonoBehaviour
     /// Volume final do audio
     /// </summary>
     [Range(0.0f, 1.0f)]
-    public float bgmVolume = 0.6f;
+    public float bgmVolume = 1.0f;
 
     /// <summary>
     /// Caminho dentro da pasta de Resources
