@@ -29,18 +29,12 @@ public class CameraFollow : MonoBehaviour
     private GameObject[] players;
 
     /// <summary>
-    /// Reerência para câmera prncipal do jogo
-    /// </summary>
-    private Camera camera;
-
-    /// <summary>
     /// Centro entre os dois jogadores
     /// </summary>
     private Vector3 target;
 
     void Start()
     {
-        camera = Camera.main;
         players = GameObject.FindGameObjectsWithTag("Player");
         target = Vector3.Lerp(players[0].transform.position, players[1].transform.position, 0.5f);
         offset = transform.position - Vector3.Lerp(players[0].transform.position, target, 0.5f);
@@ -55,7 +49,9 @@ public class CameraFollow : MonoBehaviour
         transform.position = Vector3.Lerp(transform.position, target, smoothing * Time.deltaTime);
         // distância entre os jogadores
         float distance = Vector3.Distance(players[0].transform.position, players[1].transform.position);
-
-        camera.orthographicSize = Mathf.Max(minCameraSize, distance / Camera.main.aspect / Mathf.Log10(distance));
+        if (Mathf.Log10(distance) > 0.001f)
+            Camera.main.orthographicSize = Mathf.Max(minCameraSize, distance / Camera.main.aspect / Mathf.Log10(distance));
+        else
+            Camera.main.orthographicSize = minCameraSize;
     }
 }

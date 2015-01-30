@@ -25,12 +25,7 @@ public class PlayerMovement : MonoBehaviour
     /// <summary>
     /// Define qual se o jogador é o primeiro ou segundo
     /// </summary>
-    private PlayerInput playerInput;
-
-    /// <summary>
-    /// Referência do emissor de audio do jogador
-    /// </summary>
-    private AudioSource playerAudio;
+    private InputManager playerInput;
 
     /// <summary>
     /// Referência do Animator do jogador
@@ -47,8 +42,7 @@ public class PlayerMovement : MonoBehaviour
     /// </summary>
 	void Awake () 
     {
-        playerInput = GetComponent<PlayerInput>();
-        playerAudio = GetComponent<AudioSource>();
+        playerInput = GetComponent<InputManager>();
         anim = GetComponent<Animator>();
         playerRigidbody = GetComponent<Rigidbody>();
 	}

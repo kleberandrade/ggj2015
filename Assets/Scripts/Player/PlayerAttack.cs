@@ -22,7 +22,7 @@ public class PlayerAttack : MonoBehaviour
     /// <summary>
     /// Referência para as entradas do jogador
     /// </summary>
-    private PlayerInput playerInput;
+    private InputManager playerInput;
 
     /// <summary>
     /// Referência para o Animator
@@ -45,7 +45,7 @@ public class PlayerAttack : MonoBehaviour
 	void Awake () 
     {
         playerSound = GetComponent<PlayerSound>();
-        playerInput = GetComponent<PlayerInput>();
+        playerInput = GetComponent<InputManager>();
         anim = GetComponent<Animator>();
 	}
 	

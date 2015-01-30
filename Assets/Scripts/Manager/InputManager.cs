@@ -14,7 +14,7 @@ public enum PlayerId
 }
 
 [AddComponentMenu("Scripts/Player/PlayerInput")]
-public class PlayerInput : MonoBehaviour 
+public class InputManager : MonoBehaviour 
 {
     public PlayerType playerType;
     [Range(0f, 10.0f)]
@@ -29,6 +29,11 @@ public class PlayerInput : MonoBehaviour
             playerId = (PlayerId)((int)playerType + 1);
     }
 
+    void Update()
+    {
+
+    }
+
     public string GetAxis(string axis)
     {
         return string.Format("{0}{1}", axis, GetId());
@@ -37,5 +42,10 @@ public class PlayerInput : MonoBehaviour
     public int GetId()
     {
         return (int)playerId;
+    }
+
+    public bool GetButtonDown(string name)
+    {
+        return true;
     }
 }

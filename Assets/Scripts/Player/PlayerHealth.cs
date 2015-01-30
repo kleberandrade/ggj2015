@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-[RequireComponent(typeof(PlayerInput))]
+[RequireComponent(typeof(InputManager))]
 [RequireComponent(typeof(PlayerSound))]
 [RequireComponent(typeof(PlayerMovement))]
 [RequireComponent(typeof(PlayerAttack))]
@@ -28,11 +28,14 @@ public class PlayerHealth : MonoBehaviour
     /// </summary>
     private Animator anim;
 
+    private CameraShake cameraShake;
+
     /// <summary>
     /// Atribui as referências
     /// </summary>
 	void Awake () 
     {
+        cameraShake = Camera.main.GetComponent<CameraShake>();
         playerAttack = GetComponent<PlayerAttack>();
         playerMovement = GetComponent<PlayerMovement>();
         playerSound = GetComponent<PlayerSound>();
@@ -48,5 +51,6 @@ public class PlayerHealth : MonoBehaviour
         anim.SetTrigger("Die");
         playerAttack.enabled = false;
         playerMovement.enabled = false;
+        cameraShake.Shake();
     }
 }
