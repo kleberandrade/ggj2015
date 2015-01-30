@@ -50,7 +50,7 @@ public class ButtonClick : MonoBehaviour
     /// <summary>
     /// Pega as referências
     /// </summary>
-    void Awake()
+    void Start()
     {
         GameObject go = GameObject.FindGameObjectWithTag("Manager");
         screenManager = go.GetComponent<ScreenManager>();
@@ -67,7 +67,8 @@ public class ButtonClick : MonoBehaviour
             if (!clicked)
             {
                 clicked = true;
-                StartCoroutine("Clicking");
+                var pointer = new PointerEventData(EventSystem.current);
+                ExecuteEvents.Execute(button.gameObject, pointer, ExecuteEvents.pointerClickHandler);
             }
         }
     }
@@ -79,28 +80,7 @@ public class ButtonClick : MonoBehaviour
     {
         if (buttonClip)
             source.PlayOneShot(buttonClip, 1.0f);
+
         screenManager.Load(nextScene, nextMusic);   
-    }
-
-    /// <summary>
-    /// Sobrecarga do evento de click que deve ser usado no botão
-    /// </summary>
-    public void Click(string nextScene)
-    {
-        this.nextScene = nextScene;
-        Click();
-    }
-
-    /// <summary>
-    /// Simula os efeitos que acontecem ao clicar no botão
-    /// </summary>
-    IEnumerator Clicking()
-    {
-        var pointer = new PointerEventData(EventSystem.current);
-        ExecuteEvents.Execute(button.gameObject, pointer, ExecuteEvents.pointerDownHandler);
-        yield return new WaitForSeconds(0.01f);
-        ExecuteEvents.Execute(button.gameObject, pointer, ExecuteEvents.pointerUpHandler);
-        yield return new WaitForSeconds(0.01f);
-        ExecuteEvents.Execute(button.gameObject, pointer, ExecuteEvents.pointerClickHandler);
     }
 }

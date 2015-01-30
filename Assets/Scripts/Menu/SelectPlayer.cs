@@ -104,9 +104,9 @@ public class SelectPlayer : MonoBehaviour
         selectAudio.clip = confirmClip;
         selectAudio.Play();
 
-        PlayerPrefs.SetInt(PlayerType.Shaman.ToString(), playersId[indexPlayerOne]);
-        PlayerPrefs.SetInt(PlayerType.Warrior.ToString(), playersId[indexPlayerTwo]);
-        PlayerPrefs.Save();
+        //PlayerPrefs.SetInt(PlayerType.Shaman.ToString(), playersId[indexPlayerOne]);
+        //PlayerPrefs.SetInt(PlayerType.Warrior.ToString(), playersId[indexPlayerTwo]);
+        //PlayerPrefs.Save();
 
         screenManager.Load("Level_01", "Level1");
     }

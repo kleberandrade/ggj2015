@@ -3,7 +3,11 @@ using UnityEngine.UI;
 using System.Collections;
 using UnityEngine.EventSystems;
 
-public class ButtonsHighlight : MonoBehaviour {
+public class ButtonsHighlight : MonoBehaviour
+{
+    
+
+
 	private GameObject Btn1, Btn2, Btn3;
 	public float buttonthreshold =0.2f;
 	public float timer = 0.0f;

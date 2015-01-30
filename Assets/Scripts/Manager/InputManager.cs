@@ -13,9 +13,10 @@ public enum PlayerId
     PlayerTwo
 }
 
-[AddComponentMenu("Scripts/Player/PlayerInput")]
+[AddComponentMenu("Scripts/Manager/InputManager")]
 public class InputManager : MonoBehaviour 
 {
+
     public PlayerType playerType;
     [Range(0f, 10.0f)]
     public int strength;

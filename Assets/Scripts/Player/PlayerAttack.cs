@@ -55,8 +55,8 @@ public class PlayerAttack : MonoBehaviour
 	void Update () 
     {
         timer += Time.deltaTime;
-	    if (Input.GetButton(playerInput.GetAxis("Attack")) && timer >= timeBetweenAttack)
-            Attack();
+	    //if (Input.GetButton(playerInput.GetAxis("Attack")) && timer >= timeBetweenAttack)
+        //    Attack();
 	}
 
     /// <summary>
@@ -78,7 +78,7 @@ public class PlayerAttack : MonoBehaviour
         if (item == null)
             return;
 
-        item.SendMessage("Hit", playerInput.strength);
+        //item.SendMessage("Hit", playerInput.strength);
     }
 
     /// <summary>
