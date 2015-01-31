@@ -4,7 +4,7 @@ using UnityEngine.UI;
 using UnityEngine.EventSystems;
 
 [RequireComponent (typeof(AudioSource))]
-[AddComponentMenu("Scripts/Helper/ButtonClick")]
+[AddComponentMenu("Scripts/Menu/ButtonClick")]
 public class ButtonClick : MonoBehaviour 
 {
     /// <summary>

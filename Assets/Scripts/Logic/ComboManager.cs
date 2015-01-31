@@ -2,6 +2,7 @@
 using System.Collections;
 
 [RequireComponent (typeof(AudioSource))]
+[AddComponentMenu("Scripts/Game/ComboManager")]
 public class ComboManager : MonoBehaviour
 {
     public delegate void ComboManagerHandler();

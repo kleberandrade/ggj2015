@@ -5,7 +5,7 @@ using UnityEngine.UI;
 /// <summary>
 /// Tempo de jogo
 /// </summary>
-[AddComponentMenu("Scripts/Manager/TimeManager")]
+[AddComponentMenu("Scripts/Game/TimeManager")]
 public class TimeManager : MonoBehaviour
 {
     #region Delegates and Events

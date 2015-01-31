@@ -3,6 +3,7 @@ using UnityEngine;
 
 [RequireComponent(typeof(Fade))]
 [RequireComponent(typeof(SoundManager))]
+[AddComponentMenu("Scripts/Manager/ScreenManager")]
 public class ScreenManager : MonoBehaviour
 {
     private Fade fade;
