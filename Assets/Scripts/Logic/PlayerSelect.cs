@@ -94,8 +94,8 @@ public class PlayerSelect : MonoBehaviour
         if (confirmClip)
             source.PlayOneShot(confirmClip, 1.0f);
 
-        PlayerPrefs.SetInt(PlayerType.Shaman.ToString(), playerIndex[0] + 1);
-        PlayerPrefs.SetInt(PlayerType.Warrior.ToString(), playerIndex[1] + 1);
+        PlayerPrefs.SetInt(PlayerType.Kimaro.ToString(), playerIndex[0] + 1);
+        PlayerPrefs.SetInt(PlayerType.Yeti.ToString(), playerIndex[1] + 1);
         PlayerPrefs.Save();
 
         screenManager.Load(nameNextScene);

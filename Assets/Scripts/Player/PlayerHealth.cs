@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-[RequireComponent(typeof(InputManager))]
+[RequireComponent(typeof(PlayerInput))]
 [RequireComponent(typeof(PlayerSound))]
 [RequireComponent(typeof(PlayerMovement))]
 [RequireComponent(typeof(PlayerAttack))]

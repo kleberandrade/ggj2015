@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 using UnityEngine.UI;
+using System;
 
 /// <summary>
 /// Tempo de jogo
@@ -53,6 +54,8 @@ public class TimeManager : MonoBehaviour
     /// </summary>
     public Text timeText;
 
+    private TimeSpan span;
+
     /// <summary>
     /// Método que inicial
     /// </summary>
@@ -64,6 +67,11 @@ public class TimeManager : MonoBehaviour
             if (PlayerPrefs.HasKey("TimeInSeconds"))
                 maxTimeInSeconds = PlayerPrefs.GetInt("TimeInSeconds");
         }
+        else
+        {
+            StartTime();
+        }
+
         
         // Pega o tempo inicial
         startTime = Time.time;
@@ -79,6 +87,15 @@ public class TimeManager : MonoBehaviour
             endTime = Time.time;
             if (TotalSeconds == 0)
                 StopTime();
+        }
+
+        if (timeText)
+        {
+            span = TimeSpan.FromSeconds(TotalSeconds);
+            if (span.Hours > 0)
+                timeText.text = string.Format("{0}:{1:00}:{2:00}", span.Hours, span.Minutes, span.Seconds);
+            else
+                timeText.text = string.Format("{0:00}:{1:00}", span.Minutes, span.Seconds);
         }
     }
 

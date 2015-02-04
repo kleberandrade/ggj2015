@@ -10,7 +10,7 @@ public class PlayerMovement : MonoBehaviour
     /// <summary>
     /// Velocidade do movimento
     /// </summary>
-    public float walkSpeed = 6.0f;
+    public float walkSpeed = 2.0f;
 
     /// <summary>
     /// Velocidade da rotação
@@ -25,7 +25,7 @@ public class PlayerMovement : MonoBehaviour
     /// <summary>
     /// Define qual se o jogador é o primeiro ou segundo
     /// </summary>
-    private InputManager playerInput;
+    private PlayerInput playerInput;
 
     /// <summary>
     /// Referência do Animator do jogador
@@ -42,7 +42,7 @@ public class PlayerMovement : MonoBehaviour
     /// </summary>
 	void Awake () 
     {
-        playerInput = GetComponent<InputManager>();
+        playerInput = GetComponent<PlayerInput>();
         anim = GetComponent<Animator>();
         playerRigidbody = GetComponent<Rigidbody>();
 	}
@@ -52,8 +52,8 @@ public class PlayerMovement : MonoBehaviour
     /// </summary>
 	void FixedUpdate ()
     {
-        float h = Input.GetAxisRaw(playerInput.GetAxis("Horizontal"));
-        float v = Input.GetAxisRaw(playerInput.GetAxis("Vertical"));
+        float h = Input.GetAxisRaw("Horizontal" + playerInput.GetControlNumber);
+        float v = Input.GetAxisRaw("Vertical" + playerInput.GetControlNumber);
 
         Turning(h);
         Move(v);

@@ -22,7 +22,7 @@ public class PlayerAttack : MonoBehaviour
     /// <summary>
     /// Referência para as entradas do jogador
     /// </summary>
-    private InputManager playerInput;
+    private PlayerInput playerInput;
 
     /// <summary>
     /// Referência para o Animator
@@ -45,7 +45,7 @@ public class PlayerAttack : MonoBehaviour
 	void Awake () 
     {
         playerSound = GetComponent<PlayerSound>();
-        playerInput = GetComponent<InputManager>();
+        playerInput = GetComponent<PlayerInput>();
         anim = GetComponent<Animator>();
 	}
 	
@@ -55,8 +55,8 @@ public class PlayerAttack : MonoBehaviour
 	void Update () 
     {
         timer += Time.deltaTime;
-	    //if (Input.GetButton(playerInput.GetAxis("Attack")) && timer >= timeBetweenAttack)
-        //    Attack();
+        if (Input.GetButton("Attack" + playerInput.GetControlNumber) && timer >= timeBetweenAttack)
+            Attack();
 	}
 
     /// <summary>

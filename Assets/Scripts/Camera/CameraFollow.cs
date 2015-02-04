@@ -49,7 +49,8 @@ public class CameraFollow : MonoBehaviour
         transform.position = Vector3.Lerp(transform.position, target, smoothing * Time.deltaTime);
         // distância entre os jogadores
         float distance = Vector3.Distance(players[0].transform.position, players[1].transform.position);
-        if (Mathf.Log10(distance) > 0.001f)
+
+        if (distance > minCameraSize)
             Camera.main.orthographicSize = Mathf.Max(minCameraSize, distance / Camera.main.aspect / Mathf.Log10(distance));
         else
             Camera.main.orthographicSize = minCameraSize;
