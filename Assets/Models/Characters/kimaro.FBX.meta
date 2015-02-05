@@ -122,9 +122,9 @@ ModelImporter:
       transformMask:
       - path: 
         weight: 1
-      - path: Base Human
+      - path: xama
         weight: 1
-      - path: Base HumanLPlatform
+      - path: Base Human
         weight: 1
       - path: Base HumanPelvis
         weight: 1
@@ -156,18 +156,6 @@ ModelImporter:
           HumanLCollarbone/Base HumanLUpperarm/Base HumanLForearm
         weight: 1
       - path: Base HumanPelvis/Base HumanSpine1/Base HumanSpine2/Base HumanRibcage/Base
-          HumanNeck1
-        weight: 1
-      - path: Base HumanPelvis/Base HumanSpine1/Base HumanSpine2/Base HumanRibcage/Base
-          HumanNeck1/Base HumanNeck2
-        weight: 1
-      - path: Base HumanPelvis/Base HumanSpine1/Base HumanSpine2/Base HumanRibcage/Base
-          HumanNeck1/Base HumanNeck2/Base HumanHead
-        weight: 1
-      - path: Base HumanPelvis/Base HumanSpine1/Base HumanSpine2/Base HumanRibcage/Base
-          HumanNeck1/Base HumanNeck2/Base HumanHead/cocar
-        weight: 1
-      - path: Base HumanPelvis/Base HumanSpine1/Base HumanSpine2/Base HumanRibcage/Base
           HumanRCollarbone
         weight: 1
       - path: Base HumanPelvis/Base HumanSpine1/Base HumanSpine2/Base HumanRibcage/Base
@@ -182,19 +170,31 @@ ModelImporter:
       - path: Base HumanPelvis/Base HumanSpine1/Base HumanSpine2/Base HumanRibcage/Base
           HumanRCollarbone/Base HumanRUpperarm/Base HumanRForearm/Base HumanRPalm/cajado
         weight: 1
+      - path: Base HumanPelvis/Base HumanSpine1/Base HumanSpine2/Base HumanRibcage/Base
+          HumanNeck1
+        weight: 1
+      - path: Base HumanPelvis/Base HumanSpine1/Base HumanSpine2/Base HumanRibcage/Base
+          HumanNeck1/Base HumanNeck2
+        weight: 1
+      - path: Base HumanPelvis/Base HumanSpine1/Base HumanSpine2/Base HumanRibcage/Base
+          HumanNeck1/Base HumanNeck2/Base HumanHead
+        weight: 1
+      - path: Base HumanPelvis/Base HumanSpine1/Base HumanSpine2/Base HumanRibcage/Base
+          HumanNeck1/Base HumanNeck2/Base HumanHead/cocar
+        weight: 1
       - path: Base HumanPelvis/Base HumanTail1
         weight: 1
       - path: Base HumanPelvis/Base HumanTail1/Base HumanTail2
         weight: 1
-      - path: Base HumanPelvisGizmo
-        weight: 1
-      - path: Base HumanRibcageGizmo
-        weight: 1
-      - path: Base HumanRPalmGizmo
+      - path: Base HumanLPlatform
         weight: 1
       - path: Base HumanRPlatform
         weight: 1
-      - path: xama
+      - path: Base HumanRPalmGizmo
+        weight: 1
+      - path: Base HumanPelvisGizmo
+        weight: 1
+      - path: Base HumanRibcageGizmo
         weight: 1
       maskType: 0
       maskSource: {instanceID: 0}
