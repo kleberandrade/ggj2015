@@ -9,6 +9,7 @@ public class Portal : MonoBehaviour
     public AudioClip nextLevelClip;
     public Animator animCanvas;
     public float timeToNextLevel;
+    public Collider doorCollider;
 
     private AudioSource source;
     private ScreenManager screenManager;
@@ -37,6 +38,9 @@ public class Portal : MonoBehaviour
     {
         if (animDoor)
             animDoor.SetTrigger("Open");
+
+        if (doorCollider)
+            doorCollider.isTrigger = true;
 
         if (nextLevelClip)
         {
