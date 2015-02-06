@@ -1,7 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-[RequireComponent(typeof(AudioSource))]
 [AddComponentMenu("Scripts/Game/Portal")]
 public class Portal : MonoBehaviour
 {
@@ -11,17 +10,15 @@ public class Portal : MonoBehaviour
     public float timeToNextLevel;
     public Collider doorCollider;
 
-    private AudioSource source;
+    private SoundFXManager soundFX;
     private ScreenManager screenManager;
     private Animator animDoor;
     private bool levelComplete;
 
     void Start()
     {
-        // Procura as referências
-        GameObject go = GameObject.FindGameObjectWithTag("Manager");
-        screenManager = go.GetComponent<ScreenManager>();
-        source = GetComponent<AudioSource>();
+        screenManager = ScreenManager.Instance;
+        soundFX = SoundFXManager.Instance;
         animDoor = GetComponent<Animator>();
     }
 
@@ -44,7 +41,7 @@ public class Portal : MonoBehaviour
 
         if (nextLevelClip)
         {
-            source.PlayOneShot(nextLevelClip, 1.0f);
+            soundFX.PlayOneShot(nextLevelClip);
             yield return new WaitForSeconds(nextLevelClip.length);
         }
 

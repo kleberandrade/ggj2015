@@ -3,7 +3,6 @@ using System.Collections;
 using UnityEngine.UI;
 using UnityEngine.EventSystems;
 
-[RequireComponent (typeof(AudioSource))]
 [AddComponentMenu("Scripts/Menu/ButtonClick")]
 public class ButtonClick : MonoBehaviour 
 {
@@ -33,14 +32,11 @@ public class ButtonClick : MonoBehaviour
     public AudioClip buttonClip;
 
     /// <summary>
-    /// Referência para o tocador de música
-    /// </summary>
-    private AudioSource source;
-
-    /// <summary>
     /// Referência pra o gerenciador de cenas
     /// </summary>
     private ScreenManager screenManager;
+
+    private SoundFXManager soundFX;
 
     /// <summary>
     /// Flag que indica se o botão foi pressionado
@@ -52,9 +48,8 @@ public class ButtonClick : MonoBehaviour
     /// </summary>
     void Start()
     {
-        GameObject go = GameObject.FindGameObjectWithTag("Manager");
-        screenManager = go.GetComponent<ScreenManager>();
-        source = GetComponent<AudioSource>();
+        screenManager = ScreenManager.Instance;
+        soundFX = SoundFXManager.Instance;
     }
 
     /// <summary>
@@ -79,7 +74,7 @@ public class ButtonClick : MonoBehaviour
     public void Click()
     {
         if (buttonClip)
-            source.PlayOneShot(buttonClip, 1.0f);
+            soundFX.PlayOneShot(buttonClip);
 
         screenManager.Load(nextScene, nextMusic);   
     }

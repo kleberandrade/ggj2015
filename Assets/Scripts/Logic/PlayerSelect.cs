@@ -3,7 +3,6 @@ using System.Collections;
 using UnityEngine.UI;
 using UnityEngine.EventSystems;
 
-[RequireComponent(typeof(AudioSource))]
 [AddComponentMenu("Scripts/Game/PlayerSelect")]
 public class PlayerSelect : MonoBehaviour
 {
@@ -22,18 +21,14 @@ public class PlayerSelect : MonoBehaviour
 
     private float move;
     private float lastMove;
-    private AudioSource source;
+    private SoundFXManager soundFX;
     private ScreenManager screenManager;
     
-    void Awake()
-    {
-        source = GetComponent<AudioSource>();
-        GameObject go = GameObject.FindGameObjectWithTag("Manager");
-        screenManager = go.GetComponent<ScreenManager>();
-    }
-
     void Start()
     {
+        screenManager = ScreenManager.Instance;
+        soundFX = SoundFXManager.Instance;
+
         positions = new Vector3[players.Length];
         for (int i = 0; i < players.Length; i++)
             positions[i] = players[i].position;
@@ -73,16 +68,14 @@ public class PlayerSelect : MonoBehaviour
         index = (++index) % players.Length;
         playerIndex[index] = 0;
 
-        if (moveClip)
-            source.PlayOneShot(moveClip, 1.0f);
+        soundFX.PlayOneShot(moveClip);
     }
 
     public void BackScene()
     {
         selected = true;
 
-        if (confirmClip)
-            source.PlayOneShot(confirmClip, 1.0f);
+        soundFX.PlayOneShot(confirmClip);
 
         screenManager.Load(nameBackScene);
     }
@@ -91,8 +84,7 @@ public class PlayerSelect : MonoBehaviour
     {
         selected = true;
 
-        if (confirmClip)
-            source.PlayOneShot(confirmClip, 1.0f);
+        soundFX.PlayOneShot(confirmClip);
 
         PlayerPrefs.SetInt(PlayerType.Kimaro.ToString(), playerIndex[0] + 1);
         PlayerPrefs.SetInt(PlayerType.Yeti.ToString(), playerIndex[1] + 1);

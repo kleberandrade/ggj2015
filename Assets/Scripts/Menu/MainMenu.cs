@@ -3,7 +3,6 @@ using System.Collections;
 using UnityEngine.UI;
 using UnityEngine.EventSystems;
 
-[RequireComponent(typeof(AudioSource))]
 [AddComponentMenu("Scripts/Menu/MainMenu")]
 public class MainMenu : MonoBehaviour 
 {
@@ -13,7 +12,7 @@ public class MainMenu : MonoBehaviour
     private int selectedButton = 0;
     private bool selected = false;
 
-    private AudioSource source;
+    private SoundFXManager soundFX;
     private ScreenManager screenManager;
 
     private float vertical;
@@ -21,9 +20,8 @@ public class MainMenu : MonoBehaviour
 
     void Start()
     {
-        GameObject go = GameObject.FindGameObjectWithTag("Manager");
-        screenManager = go.GetComponent<ScreenManager>();
-        source = GetComponent<AudioSource>();
+        screenManager = ScreenManager.Instance;
+        soundFX = SoundFXManager.Instance;
     }
 	
 	void Update () 
@@ -44,7 +42,7 @@ public class MainMenu : MonoBehaviour
             if (Input.GetButtonDown("Attack1") || Input.GetButtonDown("Attack2"))
             {
                 Click(buttons[selectedButton]);
-                ClickPlaySound();
+                soundFX.PlayOneShot(clickClip, 1.0f);
             }
         }        
 	}
@@ -54,7 +52,7 @@ public class MainMenu : MonoBehaviour
         if (++selectedButton > buttons.Length - 1)
             selectedButton = 0;
 
-        MovePlaySound();
+        soundFX.PlayOneShot(moveClip, 1.0f);
     }
 
     void Up()
@@ -62,7 +60,7 @@ public class MainMenu : MonoBehaviour
         if (--selectedButton < 0)
             selectedButton = buttons.Length - 1;
 
-        MovePlaySound();
+        soundFX.PlayOneShot(moveClip, 1.0f);
     }
 
     void Highlight(Button button)
@@ -71,23 +69,11 @@ public class MainMenu : MonoBehaviour
         ExecuteEvents.Execute(button.gameObject, pointer, ExecuteEvents.pointerEnterHandler);
     }
 
-    void MovePlaySound()
-    {
-        if (moveClip)
-            source.PlayOneShot(moveClip, 1.0f);
-    }
-
     void Click(Button button)
     {
         selected = true;
         var pointer = new PointerEventData(EventSystem.current);
         ExecuteEvents.Execute(button.gameObject, pointer, ExecuteEvents.pointerClickHandler);
-    }
-
-    void ClickPlaySound()
-    {
-        if (clickClip)
-            source.PlayOneShot(clickClip, 1.0f);
     }
 
     public void Credits(string levelName)
