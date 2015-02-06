@@ -5,7 +5,7 @@ using System.Collections;
 /// Gerênciador de música de fundos
 /// </summary>
 [AddComponentMenu("Scripts/Manager/SoundManager")]
-public class SoundManager : MonoBehaviour 
+public class SoundManager : Singleton<SoundManager> 
 {
     /// <summary>
     /// Tempo de transição entre uma música e outra (em segundos)
