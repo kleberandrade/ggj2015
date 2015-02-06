@@ -9,6 +9,7 @@ public class MainMenu : MonoBehaviour
 {
     public Button[] buttons;
     public AudioClip clickClip;
+    public AudioClip moveClip;
     private int selectedButton = 0;
     private bool selected = false;
 
@@ -43,7 +44,7 @@ public class MainMenu : MonoBehaviour
             if (Input.GetButtonDown("Attack1") || Input.GetButtonDown("Attack2"))
             {
                 Click(buttons[selectedButton]);
-                PlaySound();
+                ClickPlaySound();
             }
         }        
 	}
@@ -52,18 +53,28 @@ public class MainMenu : MonoBehaviour
     {
         if (++selectedButton > buttons.Length - 1)
             selectedButton = 0;
+
+        MovePlaySound();
     }
 
     void Up()
     {
         if (--selectedButton < 0)
             selectedButton = buttons.Length - 1;
+
+        MovePlaySound();
     }
 
     void Highlight(Button button)
     {
         var pointer = new PointerEventData(EventSystem.current);
         ExecuteEvents.Execute(button.gameObject, pointer, ExecuteEvents.pointerEnterHandler);
+    }
+
+    void MovePlaySound()
+    {
+        if (moveClip)
+            source.PlayOneShot(moveClip, 1.0f);
     }
 
     void Click(Button button)
@@ -73,7 +84,7 @@ public class MainMenu : MonoBehaviour
         ExecuteEvents.Execute(button.gameObject, pointer, ExecuteEvents.pointerClickHandler);
     }
 
-    void PlaySound()
+    void ClickPlaySound()
     {
         if (clickClip)
             source.PlayOneShot(clickClip, 1.0f);

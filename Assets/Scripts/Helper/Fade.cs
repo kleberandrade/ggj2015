@@ -5,7 +5,7 @@ using System.Collections;
 /// Transiçao do tipo Fade In e Out
 /// </summary>
 [AddComponentMenu("Scripts/Transition/Fade")]
-public class Fade : MonoBehaviour
+public class Fade : Singleton<Fade>
 {
     /// <summary>
     /// Tempo para a transição
