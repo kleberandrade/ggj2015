@@ -1,10 +1,8 @@
 ﻿using System.Collections;
 using UnityEngine;
 
-//[RequireComponent(typeof(Fade))]
-[RequireComponent(typeof(SoundManager))]
 [AddComponentMenu("Scripts/Manager/ScreenManager")]
-public class ScreenManager : MonoBehaviour
+public class ScreenManager : Singleton<ScreenManager>
 {
     private Fade fade;
     private SoundManager soundManager;
@@ -12,8 +10,7 @@ public class ScreenManager : MonoBehaviour
     void Awake()
     {
         fade = Fade.Instance;
-        //fade = GetComponent<Fade>();
-        //soundManager = GetComponent<SoundManager>();
+        soundManager = SoundManager.Instance;
     }
 
     public void Load(string name)
@@ -23,7 +20,7 @@ public class ScreenManager : MonoBehaviour
 
     public void Load(string name, string audioClip)
     {
-        //soundManager.PlayClip(audioClip);
+        soundManager.PlayClip(audioClip);
         StartCoroutine("Loading", name);
     }
 
