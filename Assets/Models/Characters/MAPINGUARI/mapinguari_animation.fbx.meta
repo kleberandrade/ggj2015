@@ -1,0 +1,371 @@
+fileFormatVersion: 2
+guid: 6e779e88f3ce7334c9eeecd97635d778
+ModelImporter:
+  serializedVersion: 16
+  fileIDToRecycleName:
+    100000: antebrac_direito
+    100002: antebraco_esquerdo
+    100004: boca_inferior
+    100006: boca_superior
+    100008: braco_direito
+    100010: braco_esquerdo
+    100012: cabeca_ombro
+    100014: coluna
+    100016: joelho_direito
+    100018: joelho_esquerdo
+    100020: main_joint
+    100022: mao_direit
+    100024: mao_esquerda
+    100026: //RootNode
+    100028: olho
+    100030: pe_direito
+    100032: pe_esquerdo
+    100034: polySurface23
+    100036: punho_direita
+    100038: punho_direito
+    400000: antebrac_direito
+    400002: antebraco_esquerdo
+    400004: boca_inferior
+    400006: boca_superior
+    400008: braco_direito
+    400010: braco_esquerdo
+    400012: cabeca_ombro
+    400014: coluna
+    400016: joelho_direito
+    400018: joelho_esquerdo
+    400020: main_joint
+    400022: mao_direit
+    400024: mao_esquerda
+    400026: //RootNode
+    400028: olho
+    400030: pe_direito
+    400032: pe_esquerdo
+    400034: polySurface23
+    400036: punho_direita
+    400038: punho_direito
+    4300000: polySurface23
+    7400000: Idle
+    7400002: Walk
+    7400004: Attack
+    7400006: Death
+    7400008: Take 001
+    9500000: //RootNode
+    13700000: polySurface23
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    optimizeGameObjects: 1
+    motionNodeName: 
+    animationCompression: 1
+    animationRotationError: .5
+    animationPositionError: .5
+    animationScaleError: .5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    clipAnimations:
+    - serializedVersion: 16
+      name: Idle
+      takeName: Take 001
+      firstFrame: 1
+      lastFrame: 30
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      loopTime: 1
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: main_joint
+        weight: 1
+      - path: main_joint/coluna
+        weight: 1
+      - path: main_joint/coluna/cabeca_ombro
+        weight: 1
+      - path: main_joint/coluna/cabeca_ombro/olho
+        weight: 1
+      - path: main_joint/coluna/cabeca_ombro/braco_direito
+        weight: 1
+      - path: main_joint/coluna/cabeca_ombro/braco_direito/antebrac_direito
+        weight: 1
+      - path: main_joint/coluna/cabeca_ombro/braco_direito/antebrac_direito/punho_direito
+        weight: 1
+      - path: main_joint/coluna/cabeca_ombro/braco_direito/antebrac_direito/punho_direito/mao_direit
+        weight: 1
+      - path: main_joint/coluna/cabeca_ombro/braco_esquerdo
+        weight: 1
+      - path: main_joint/coluna/cabeca_ombro/braco_esquerdo/antebraco_esquerdo
+        weight: 1
+      - path: main_joint/coluna/cabeca_ombro/braco_esquerdo/antebraco_esquerdo/punho_direita
+        weight: 1
+      - path: main_joint/coluna/cabeca_ombro/braco_esquerdo/antebraco_esquerdo/punho_direita/mao_esquerda
+        weight: 1
+      - path: main_joint/coluna/boca_inferior
+        weight: 1
+      - path: main_joint/coluna/boca_superior
+        weight: 1
+      - path: main_joint/joelho_esquerdo
+        weight: 1
+      - path: main_joint/joelho_esquerdo/pe_esquerdo
+        weight: 1
+      - path: main_joint/joelho_direito
+        weight: 1
+      - path: main_joint/joelho_direito/pe_direito
+        weight: 1
+      - path: polySurface23
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+    - serializedVersion: 16
+      name: Walk
+      takeName: Take 001
+      firstFrame: 31
+      lastFrame: 75
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 31
+      loop: 0
+      loopTime: 1
+      loopBlend: 1
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: main_joint
+        weight: 1
+      - path: main_joint/coluna
+        weight: 1
+      - path: main_joint/coluna/cabeca_ombro
+        weight: 1
+      - path: main_joint/coluna/cabeca_ombro/olho
+        weight: 1
+      - path: main_joint/coluna/cabeca_ombro/braco_direito
+        weight: 1
+      - path: main_joint/coluna/cabeca_ombro/braco_direito/antebrac_direito
+        weight: 1
+      - path: main_joint/coluna/cabeca_ombro/braco_direito/antebrac_direito/punho_direito
+        weight: 1
+      - path: main_joint/coluna/cabeca_ombro/braco_direito/antebrac_direito/punho_direito/mao_direit
+        weight: 1
+      - path: main_joint/coluna/cabeca_ombro/braco_esquerdo
+        weight: 1
+      - path: main_joint/coluna/cabeca_ombro/braco_esquerdo/antebraco_esquerdo
+        weight: 1
+      - path: main_joint/coluna/cabeca_ombro/braco_esquerdo/antebraco_esquerdo/punho_direita
+        weight: 1
+      - path: main_joint/coluna/cabeca_ombro/braco_esquerdo/antebraco_esquerdo/punho_direita/mao_esquerda
+        weight: 1
+      - path: main_joint/coluna/boca_inferior
+        weight: 1
+      - path: main_joint/coluna/boca_superior
+        weight: 1
+      - path: main_joint/joelho_esquerdo
+        weight: 1
+      - path: main_joint/joelho_esquerdo/pe_esquerdo
+        weight: 1
+      - path: main_joint/joelho_direito
+        weight: 1
+      - path: main_joint/joelho_direito/pe_direito
+        weight: 1
+      - path: polySurface23
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+    - serializedVersion: 16
+      name: Attack
+      takeName: Take 001
+      firstFrame: 76
+      lastFrame: 95
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: main_joint
+        weight: 1
+      - path: main_joint/coluna
+        weight: 1
+      - path: main_joint/coluna/cabeca_ombro
+        weight: 1
+      - path: main_joint/coluna/cabeca_ombro/olho
+        weight: 1
+      - path: main_joint/coluna/cabeca_ombro/braco_direito
+        weight: 1
+      - path: main_joint/coluna/cabeca_ombro/braco_direito/antebrac_direito
+        weight: 1
+      - path: main_joint/coluna/cabeca_ombro/braco_direito/antebrac_direito/punho_direito
+        weight: 1
+      - path: main_joint/coluna/cabeca_ombro/braco_direito/antebrac_direito/punho_direito/mao_direit
+        weight: 1
+      - path: main_joint/coluna/cabeca_ombro/braco_esquerdo
+        weight: 1
+      - path: main_joint/coluna/cabeca_ombro/braco_esquerdo/antebraco_esquerdo
+        weight: 1
+      - path: main_joint/coluna/cabeca_ombro/braco_esquerdo/antebraco_esquerdo/punho_direita
+        weight: 1
+      - path: main_joint/coluna/cabeca_ombro/braco_esquerdo/antebraco_esquerdo/punho_direita/mao_esquerda
+        weight: 1
+      - path: main_joint/coluna/boca_inferior
+        weight: 1
+      - path: main_joint/coluna/boca_superior
+        weight: 1
+      - path: main_joint/joelho_esquerdo
+        weight: 1
+      - path: main_joint/joelho_esquerdo/pe_esquerdo
+        weight: 1
+      - path: main_joint/joelho_direito
+        weight: 1
+      - path: main_joint/joelho_direito/pe_direito
+        weight: 1
+      - path: polySurface23
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+    - serializedVersion: 16
+      name: Take 001
+      takeName: Take 001
+      firstFrame: 96
+      lastFrame: 127
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: main_joint
+        weight: 1
+      - path: main_joint/coluna
+        weight: 1
+      - path: main_joint/coluna/cabeca_ombro
+        weight: 1
+      - path: main_joint/coluna/cabeca_ombro/olho
+        weight: 1
+      - path: main_joint/coluna/cabeca_ombro/braco_direito
+        weight: 1
+      - path: main_joint/coluna/cabeca_ombro/braco_direito/antebrac_direito
+        weight: 1
+      - path: main_joint/coluna/cabeca_ombro/braco_direito/antebrac_direito/punho_direito
+        weight: 1
+      - path: main_joint/coluna/cabeca_ombro/braco_direito/antebrac_direito/punho_direito/mao_direit
+        weight: 1
+      - path: main_joint/coluna/cabeca_ombro/braco_esquerdo
+        weight: 1
+      - path: main_joint/coluna/cabeca_ombro/braco_esquerdo/antebraco_esquerdo
+        weight: 1
+      - path: main_joint/coluna/cabeca_ombro/braco_esquerdo/antebraco_esquerdo/punho_direita
+        weight: 1
+      - path: main_joint/coluna/cabeca_ombro/braco_esquerdo/antebraco_esquerdo/punho_direita/mao_esquerda
+        weight: 1
+      - path: main_joint/coluna/boca_inferior
+        weight: 1
+      - path: main_joint/coluna/boca_superior
+        weight: 1
+      - path: main_joint/joelho_esquerdo
+        weight: 1
+      - path: main_joint/joelho_esquerdo/pe_esquerdo
+        weight: 1
+      - path: main_joint/joelho_direito
+        weight: 1
+      - path: main_joint/joelho_direito/pe_direito
+        weight: 1
+      - path: polySurface23
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1.29999995
+    meshCompression: 0
+    addColliders: 0
+    importBlendShapes: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+  tangentSpace:
+    normalSmoothAngle: 60
+    splitTangentsAcrossUV: 1
+    normalImportMode: 0
+    tangentImportMode: 1
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    human: []
+    skeleton: []
+    armTwist: .5
+    foreArmTwist: .5
+    upperLegTwist: .5
+    legTwist: .5
+    armStretch: .0500000007
+    legStretch: .0500000007
+    feetSpacing: 0
+    rootMotionBoneName: 
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  additionalBone: 0
+  userData: 
