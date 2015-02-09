@@ -48,7 +48,7 @@ ModelImporter:
     7400002: Walk
     7400004: Attack
     7400006: Death
-    7400008: Take 001
+    7400008: Death
     9500000: //RootNode
     13700000: polySurface23
   materials:
@@ -266,7 +266,7 @@ ModelImporter:
       maskType: 0
       maskSource: {instanceID: 0}
     - serializedVersion: 16
-      name: Take 001
+      name: Death
       takeName: Take 001
       firstFrame: 96
       lastFrame: 127
