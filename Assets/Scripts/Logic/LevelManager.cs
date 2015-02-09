@@ -12,6 +12,12 @@ public class LevelManager : MonoBehaviour
     {
         screenManager = ScreenManager.Instance;
         soundManager = SoundManager.Instance;
+
+        Invoke("OnLevelWasLoaded", 1.0f);
+    }
+
+    void OnLevelWasLoaded()
+    {
         soundManager.PlayClip(nameLevelMusic);
     }
 }

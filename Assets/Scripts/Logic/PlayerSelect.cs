@@ -9,6 +9,7 @@ public class PlayerSelect : MonoBehaviour
     public Transform[] players;
     public string nameBackScene = "Screen_Menu";
     public string nameNextScene = "Level_01";
+    public string nameMusicToNextLevel = "Level1";
     public Button backButton;
     public Button nextButton;
     public AudioClip moveClip;
@@ -90,6 +91,6 @@ public class PlayerSelect : MonoBehaviour
         PlayerPrefs.SetInt(PlayerType.Yeti.ToString(), playerIndex[1] + 1);
         PlayerPrefs.Save();
 
-        screenManager.Load(nameNextScene);
+        screenManager.Load(nameNextScene, nameMusicToNextLevel);
     }
 }
