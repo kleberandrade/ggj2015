@@ -92,7 +92,10 @@ ModelImporter:
     animationPositionError: .5
     animationScaleError: .5
     animationWrapMode: 0
-    extraExposedTransformPaths: []
+    extraExposedTransformPaths:
+    - Base HumanPelvisGizmo
+    - Base HumanPelvis/Base HumanSpine1/Base HumanSpine2/Base HumanRibcage/Base HumanNeck/Base
+      HumanHead
     clipAnimations:
     - serializedVersion: 16
       name: Idle
